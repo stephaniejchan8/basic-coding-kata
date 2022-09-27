@@ -11,6 +11,9 @@ public static class Startup
 4. Calculate the sum of numbers
 5. Calculate the sum of numbers that are multiples of 3 or 5
 6. Calculate the sum or product of numbers
+7. Print multiplication table for a number (up to 12)
+8. Guessing game: guess the secret number
+9. Print the next 20 leap years
 ");
         
         var chosenProgram = Console.ReadLine();
@@ -39,8 +42,18 @@ public static class Startup
                 var userInput = new UserInput();
                 userInput.CheckIfSumOrProduct();
                 break;
+            case "7":
+                var multiplicationTable = new MultiplicationTable();
+                multiplicationTable.RunMultiplicationTable();
+                break;
+            case "8":
+                
+            case "9":
+                var leapYears = new LeapYears();
+                leapYears.RunPrintNext20LeapYears();
+                break;
             default:
-                StandardMessages.PrintInvalidDataMessage();
+                Messages.PrintInvalidDataMessage();
                 break;
         }
     }

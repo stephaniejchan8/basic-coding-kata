@@ -2,7 +2,7 @@ namespace f_basic_coding;
 
 public class UserInput
 {
-    public int _inputNumber;
+    public int InputNumber;
     private static string? RequestNumber()
     {
         Console.WriteLine("Enter a number:");
@@ -20,11 +20,11 @@ public class UserInput
         bool success = int.TryParse(inputNumberString, out var parsedNumber);
         if (success)
         {
-            _inputNumber = parsedNumber;
+            InputNumber = parsedNumber;
             return success;
         }
 
-        StandardMessages.PrintInvalidDataMessage();
+        Messages.PrintInvalidDataMessage();
         return false;
     }
 
@@ -47,7 +47,7 @@ public class UserInput
         }
         else
         {
-            StandardMessages.PrintInvalidDataMessage();
+            Messages.PrintInvalidDataMessage();
         }
     }
 }

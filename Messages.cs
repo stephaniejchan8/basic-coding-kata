@@ -1,6 +1,6 @@
 namespace f_basic_coding;
 
-public class StandardMessages
+public class Messages
 {
     public static void PrintInvalidDataMessage()
     {
@@ -19,5 +19,19 @@ public class StandardMessages
     public static void PrintProductOf1ToNumber(int inputNumber, int total)
     {
         Console.WriteLine($"Product of numbers from 1 to {inputNumber}: {total}");
+    }
+
+    public static void PrintMultiplication(int multiplier, int inputNumber)
+    {
+        Console.WriteLine($"{multiplier} x {inputNumber} = {multiplier * inputNumber}");
+    }
+
+    public static void PrintNext20LeapYears(int[] leapYears)
+    {
+        Console.WriteLine("The next 20 leap years:");
+        foreach (int leapYear in leapYears)
+        {
+            Console.WriteLine(leapYear);
+        }
     }
 }

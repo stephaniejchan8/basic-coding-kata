@@ -17,14 +17,14 @@ public class NumberCalculations : UserInput
     {
         ObtainValidatedNumber();
         SumOf1ToNumber();
-        StandardMessages.PrintSum(_inputNumber, _total);
+        Messages.PrintSum(InputNumber, _total);
     }
 
     public void RunSumMultiplesOf3Or5()
     {
         ObtainValidatedNumber();
         SumMultiplesOf3Or5();
-        StandardMessages.PrintSumMultiplesOf3Or5(_inputNumber, _total);
+        Messages.PrintSumMultiplesOf3Or5(InputNumber, _total);
         // }
     }
 
@@ -32,12 +32,12 @@ public class NumberCalculations : UserInput
     {
         ObtainValidatedNumber();
         ProductOf1ToNumber();
-        StandardMessages.PrintProductOf1ToNumber(_inputNumber, _total);
+        Messages.PrintProductOf1ToNumber(InputNumber, _total);
     }
 
     private void SumOf1ToNumber()
     {
-        for (var i = 1; i <= _inputNumber; i++)
+        for (var i = 1; i <= InputNumber; i++)
         {
             _total += i;
         }
@@ -45,7 +45,7 @@ public class NumberCalculations : UserInput
 
     private void SumMultiplesOf3Or5()
     {
-        for (var i = 1; i <= _inputNumber; i++)
+        for (var i = 1; i <= InputNumber; i++)
         {
             if (i % 3 == 0 || i % 5 == 0)
             {
@@ -56,14 +56,14 @@ public class NumberCalculations : UserInput
 
     private void ProductOf1ToNumber()
     {
-        if (_inputNumber == 0)
+        if (InputNumber == 0)
         {
             _total = 0;
         }
         else
         {
             _total = 1;
-            for (var i = 1; i <= _inputNumber; i++)
+            for (var i = 1; i <= InputNumber; i++)
             {
                 _total *= i;
             }
