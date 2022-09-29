@@ -70,7 +70,7 @@ public class NumberCalculations
             return 0;
         }
 
-        var total = 0;
+        var total = 1;
         for (var i = 1; i <= inputNumber; i++)
         {
             total *= i;

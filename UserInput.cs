@@ -20,7 +20,7 @@ public class UserInput
         return Console.ReadLine();
     }
 
-    private static string? RequestSumOrProduct()
+    private static string RequestSumOrProduct()
     {
         Console.WriteLine("Would you like to calculate the sum or product of the numbers from 1 to your input number?");
         return Console.ReadLine();
@@ -29,12 +29,11 @@ public class UserInput
     public string CheckIfSumOrProduct()
     {
         var userInput = RequestSumOrProduct().Trim().ToLower();
-        while (userInput != "sum" || userInput != "product")
+        while (userInput != "sum" && userInput != "product")
         {
             Messages.PrintInvalidDataMessage();
             userInput = RequestSumOrProduct().Trim().ToLower();
         }
-
         return userInput;
     }
 }
