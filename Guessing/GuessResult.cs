@@ -1,4 +1,4 @@
-namespace f_basic_coding.GuessingGame;
+namespace f_basic_coding.Guessing;
 
 public enum GuessResult
 {

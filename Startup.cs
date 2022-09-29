@@ -1,4 +1,5 @@
 using f_basic_coding.Numbers;
+using f_basic_coding.Guessing;
 
 namespace f_basic_coding;
 
@@ -48,8 +49,10 @@ public static class Startup
                 var multiplicationTable = new MultiplicationTable();
                 multiplicationTable.RunMultiplicationTable();
                 break;
-            // case "8":
-                
+            case "8":
+                var guessingGame = new GuessingGame();
+                guessingGame.RunGuessingGame();
+                break;
             case "9":
                 var leapYears = new LeapYears();
                 leapYears.RunPrintNext20LeapYears();
