@@ -7,20 +7,6 @@ public class Messages
         Console.WriteLine("User input is not in correct format. Please try again. \n");
     }
 
-    public static void PrintSum(int inputNumber, int total)
-    {
-        Console.WriteLine($"Sum of numbers from 1 to {inputNumber}: {total}");
-    }
-    public static void PrintSumMultiplesOf3Or5(int inputNumber, int total)
-    {
-        Console.WriteLine($"Sum of numbers from 1 to {inputNumber} that are a multiple of 3 or 5: {total}");
-    }
-
-    public static void PrintProductOf1ToNumber(int inputNumber, int total)
-    {
-        Console.WriteLine($"Product of numbers from 1 to {inputNumber}: {total}");
-    }
-
     public static void PrintMultiplication(int multiplier, int inputNumber)
     {
         Console.WriteLine($"{multiplier} x {inputNumber} = {multiplier * inputNumber}");
@@ -34,4 +20,12 @@ public class Messages
             Console.WriteLine(leapYear);
         }
     }
+
+    // public static void PrintGuessResult(GuessResult result)
+    // {
+    //     if (result == GuessResult.Correct)
+    //     {
+    //         Console.WriteLine(
+    //  $"You guessed correctly! The secret number was {secretNumber}. It took you {guessCounter} guesses to guess correctly.");
+    //     }
 }

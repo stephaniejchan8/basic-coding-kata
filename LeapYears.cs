@@ -2,25 +2,25 @@ namespace f_basic_coding;
 
 public class LeapYears
 {
-    private int[] _next20LeapYears = new int[20];
-
     public void RunPrintNext20LeapYears()
     {
-        CalculateNext20LeapYears();
-        Messages.PrintNext20LeapYears(_next20LeapYears);
+        var next20LeapYears = CalculateNext20LeapYears(DateTime.Today.Year);
+        Messages.PrintNext20LeapYears(next20LeapYears);
     }
 
-    private void CalculateNext20LeapYears()
+    private int[] CalculateNext20LeapYears(int currentYear)
     {
-        var currentYear = DateTime.Today.Year;
+        var next20LeapYears = new int[20];
         var leapYearCounter = 0;
         for (var i = currentYear; leapYearCounter < 20; i++)
         {
             if (i % 4 == 0)
             {
-                _next20LeapYears[leapYearCounter] = i;
+                next20LeapYears[leapYearCounter] = i;
                 leapYearCounter++;
             }
         }
+
+        return next20LeapYears;
     }
 }

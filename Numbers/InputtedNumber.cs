@@ -1,4 +1,4 @@
-namespace f_basic_coding;
+namespace f_basic_coding.Numbers;
 
 public class InputtedNumber
 {

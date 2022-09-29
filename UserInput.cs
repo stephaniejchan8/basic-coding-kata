@@ -2,52 +2,39 @@ namespace f_basic_coding;
 
 public class UserInput
 {
-    public int InputNumber;
+    public int ObtainValidatedNumber()
+    {
+        var inputNumberString = RequestNumber();
+        int inputNumber;
+        while (!int.TryParse(inputNumberString, out inputNumber))
+        {
+            Messages.PrintInvalidDataMessage();
+            inputNumberString = RequestNumber();
+        }
+
+        return inputNumber;
+    }
     private static string? RequestNumber()
     {
         Console.WriteLine("Enter a number:");
         return Console.ReadLine();
     }
 
-    public void ObtainValidatedNumber()
-    {
-        var inputNumberString = RequestNumber();
-        IsValidNumber(inputNumberString);
-    }
-    
-    private bool IsValidNumber(string inputNumberString)
-    {
-        bool success = int.TryParse(inputNumberString, out var parsedNumber);
-        if (success)
-        {
-            InputNumber = parsedNumber;
-            return success;
-        }
-
-        Messages.PrintInvalidDataMessage();
-        return false;
-    }
-
-    public static string? RequestSumOrProduct()
+    private static string? RequestSumOrProduct()
     {
         Console.WriteLine("Would you like to calculate the sum or product of the numbers from 1 to your input number?");
         return Console.ReadLine();
     }
 
-    public void CheckIfSumOrProduct()
+    public string CheckIfSumOrProduct()
     {
-        var numberCalculations = new NumberCalculations();
         var userInput = RequestSumOrProduct().Trim().ToLower();
-        if (userInput == "sum")
-        {
-            numberCalculations.RunSumOf1ToNumber();   
-        } else if (userInput == "product")
-        {
-            numberCalculations.RunProductOf1ToNumber();
-        }
-        else
+        while (userInput != "sum" || userInput != "product")
         {
             Messages.PrintInvalidDataMessage();
+            userInput = RequestSumOrProduct().Trim().ToLower();
         }
+
+        return userInput;
     }
 }

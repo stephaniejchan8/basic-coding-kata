@@ -1,83 +1,81 @@
-namespace f_basic_coding;
+namespace f_basic_coding.Numbers;
 
-public class NumberCalculations : UserInput
+public class NumberCalculations
 {
-    // private int _inputNumber;
-    private int _total;
-
-    // private void RequestNumber()
-    // {
-    //     Console.WriteLine("Enter a number:");
-    //     var inputNumberString = Console.ReadLine();
-    //
-    //     IsValidNumber(inputNumberString);
-    // }
+    private UserInput _userInput = new UserInput();
 
     public void RunSumOf1ToNumber()
     {
-        ObtainValidatedNumber();
-        SumOf1ToNumber();
-        Messages.PrintSum(InputNumber, _total);
+        var inputNumber = _userInput.ObtainValidatedNumber();
+        var total = SumOf1ToNumber(inputNumber);
+        Console.WriteLine($"Sum of numbers from 1 to {inputNumber}: {total}");
     }
 
     public void RunSumMultiplesOf3Or5()
     {
-        ObtainValidatedNumber();
-        SumMultiplesOf3Or5();
-        Messages.PrintSumMultiplesOf3Or5(InputNumber, _total);
-        // }
+        var inputNumber = _userInput.ObtainValidatedNumber();
+        var total = SumMultiplesOf3Or5(inputNumber);
+        Console.WriteLine($"Sum of numbers from 1 to {inputNumber} that are a multiple of 3 or 5: {total}");
+    }
+
+    public void RunSumOrProduct()
+    {
+        var userInput = _userInput.CheckIfSumOrProduct();
+        if (userInput == "sum")
+        {
+            RunSumOf1ToNumber();
+        }
+        else
+        {
+            RunProductOf1ToNumber();
+        }
     }
 
     public void RunProductOf1ToNumber()
     {
-        ObtainValidatedNumber();
-        ProductOf1ToNumber();
-        Messages.PrintProductOf1ToNumber(InputNumber, _total);
+        var inputNumber = _userInput.ObtainValidatedNumber();
+        var total = ProductOf1ToNumber(inputNumber);
+        Console.WriteLine($"Product of numbers from 1 to {inputNumber}: {total}");
     }
 
-    private void SumOf1ToNumber()
+    public int SumOf1ToNumber(int inputNumber)
     {
-        for (var i = 1; i <= InputNumber; i++)
+        var total = 0;
+        for (var i = 1; i <= inputNumber; i++)
         {
-            _total += i;
+            total += i;
         }
+
+        return total;
     }
 
-    private void SumMultiplesOf3Or5()
+    public int SumMultiplesOf3Or5(int inputNumber)
     {
-        for (var i = 1; i <= InputNumber; i++)
+        var total = 0;
+        for (var i = 1; i <= inputNumber; i++)
         {
             if (i % 3 == 0 || i % 5 == 0)
             {
-                _total += i;
+                total += i;
             }
         }
+
+        return total;
     }
 
-    private void ProductOf1ToNumber()
+    public int ProductOf1ToNumber(int inputNumber)
     {
-        if (InputNumber == 0)
+        if (inputNumber == 0)
         {
-            _total = 0;
+            return 0;
         }
-        else
+
+        var total = 0;
+        for (var i = 1; i <= inputNumber; i++)
         {
-            _total = 1;
-            for (var i = 1; i <= InputNumber; i++)
-            {
-                _total *= i;
-            }
+            total *= i;
         }
+
+        return total;
     }
 }
-
-
-// public void RunSumMultiplesOf3Or5()
-// {
-//     // var inputNumberString = RequestNumber();
-//     // if (IsValidNumber(inputNumberString))
-//     // {
-//     SumMultiplesOf3Or5();
-//     StandardMessages.PrintSumMultiplesOf3Or5(_inputNumber, _total);
-//     // }
-// }

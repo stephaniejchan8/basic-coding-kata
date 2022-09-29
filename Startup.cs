@@ -1,3 +1,5 @@
+using f_basic_coding.Numbers;
+
 namespace f_basic_coding;
 
 public static class Startup
@@ -12,7 +14,7 @@ public static class Startup
 5. Calculate the sum of numbers that are multiples of 3 or 5
 6. Calculate the sum or product of numbers
 7. Print multiplication table for a number (up to 12)
-8. Guessing game: guess the secret number
+8. Guessing game: guess the secret number from 1 to 1000
 9. Print the next 20 leap years
 ");
         
@@ -39,14 +41,14 @@ public static class Startup
                 numberCalculations.RunSumMultiplesOf3Or5();
                 break;
             case "6":
-                var userInput = new UserInput();
-                userInput.CheckIfSumOrProduct();
+                numberCalculations = new NumberCalculations();
+                numberCalculations.RunSumOrProduct();
                 break;
             case "7":
                 var multiplicationTable = new MultiplicationTable();
                 multiplicationTable.RunMultiplicationTable();
                 break;
-            case "8":
+            // case "8":
                 
             case "9":
                 var leapYears = new LeapYears();
@@ -54,6 +56,7 @@ public static class Startup
                 break;
             default:
                 Messages.PrintInvalidDataMessage();
+                Run();
                 break;
         }
     }
